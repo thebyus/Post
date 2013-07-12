@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 	has_many :cats
 	has_many :categories, through: :cats
 
-	validates :title, presence: true, length: {minimum: 5}
+	validates :title, presence: true, length: {minimum: 3}
 	validates :url, presence: true
+	validates :description, presence: true
 end

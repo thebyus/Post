@@ -1,16 +1,23 @@
 <h3>You're viewing: <%= @post.title %> </h3>
-<p>
-	<h5>
-		<%= @post.description %>
-	</h5>
-</p>
+<h5>Post:</h5>
+<p><%= @post.description %></p>
+<h5>URL:</h5> 
+<%= @post.url %>
 
-<p>This post was written by: <%= @post.creator.username %></p>
+<div>
+	<h5>New Comment</h5>
+	<%= render 'shared/errors', obj: @comment %>
+	<%= form_for [@post, @comment] do |f| %>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+		<br>
+		<%= f.submit "Create Comment" %>
+	<% end %>
+</div>
 
 <h5>Comments:</h5>
 <ul>
-	<% @post.comments.each do |comments| %>
-		<%= comments.comment %>
+	<% @post.comments.each do |comment| %>
+		<li><%= comment.body %></li>
 	<% end %>
-
 </ul>
