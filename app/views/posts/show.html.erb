@@ -1,4 +1,4 @@
-<h3>You're viewing: <%= @post.title %> </h3>
+<%= render 'shared/header', header: 'Viewing: ' %>
 <h5>Post:</h5>
 <p><%= @post.description %></p>
 <h5>URL:</h5> 
@@ -11,7 +11,7 @@
 		<%= f.label :body %>
 		<%= f.text_area :body %>
 		<br>
-		<%= f.submit "Create Comment" %>
+		<%= f.submit "Create Comment", class: 'btn btn-success' %>
 	<% end %>
 </div>
 
