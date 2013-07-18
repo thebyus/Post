@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	has_many :cats
 	has_many :categories, through: :cats
+	has_many :votes, as: :voteable
 
 	validates :title, presence: true, length: {minimum: 3}
 	validates :url, presence: true
